@@ -51,8 +51,8 @@ app.get('/find', function(req, res, next) {
 
 app.put('/update/:bookName',function (req, res) {  
   
-    Book.findOneAndUpdate({bookName:req.params.bookName},
-	{$set:{bookName:req.body.bookName,rating:req.body.rating}},
+    Book.update({bookName:req.params.bookName},
+	{$set:{bookName:req.body.bookName}},
 	{upsert:true},function(err,lib){
 	if (err) {  
             res.send(err);  
